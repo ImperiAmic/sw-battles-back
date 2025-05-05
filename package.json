@@ -1,0 +1,20 @@
+{
+  "name": "sw-battles-back",
+  "version": "1.0.0",
+  "main": "dist/",
+  "scripts": {
+    "start": "node .",
+    "start:dev": "node --watch .",
+    "build": "tsc",
+    "build:dev": "tsc -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
