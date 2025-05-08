@@ -1,0 +1,44 @@
+import mongoose, { Schema } from "mongoose";
+import { BattleStructure } from "../types.js";
+
+const BattleSchema = new Schema<BattleStructure>({
+  name: {
+    type: String,
+    required: true,
+  },
+  conflict: {
+    type: String,
+    required: true,
+  },
+  year: {
+    type: Number,
+    required: true,
+  },
+  period: {
+    type: [String],
+    required: true,
+  },
+  imageUrl: {
+    String,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  lightSide: {
+    type: [String],
+    required: true,
+  },
+  darkSide: {
+    type: [String],
+    required: true,
+  },
+  winner: {
+    type: Boolean,
+    required: true,
+  },
+});
+
+const Battle = mongoose.model("Battle", BattleSchema, "battles");
+
+export default Battle;

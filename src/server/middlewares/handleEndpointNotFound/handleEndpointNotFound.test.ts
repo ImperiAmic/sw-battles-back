@@ -14,9 +14,9 @@ describe("Given the handleEndpointNotFound middleware", () => {
     });
 
     test("Then it should call the next function with an error with status code 404", () => {
-      const expectedError = {
+      const expectedError: Pick<ServerError, "statusCode"> = {
         statusCode: statusCodes.NOT_FOUND,
-      } as Pick<ServerError, "statusCode">;
+      };
 
       handleEndpointNotFound(
         req as Request,
