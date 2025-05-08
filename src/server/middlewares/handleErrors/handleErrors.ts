@@ -4,7 +4,7 @@ import createDebug from "debug";
 import ServerError from "../../ServerError/ServerError.js";
 import statusCodes from "../../../globals/statusCodes.js";
 
-const debug = createDebug("posts:server:error");
+const debug = createDebug("battles:server:error");
 
 const handleErrors = (
   error: ServerError,
