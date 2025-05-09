@@ -3,8 +3,8 @@ export interface BattleStructure {
   name: string;
   conflict: string;
   year: number;
-  period: ["BBY", "ABY"];
-  imageUrl: string;
+  period: "BBY" | "ABY";
+  imageUrl?: string;
   description: string;
   lightSide: [string];
   darkSide: [string];
