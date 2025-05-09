@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 import { BattleStructure } from "../types.js";
 
-const BattleSchema = new Schema<BattleStructure>({
+const battleSchema = new Schema<BattleStructure>({
   name: {
     type: String,
     required: true,
@@ -40,6 +40,6 @@ const BattleSchema = new Schema<BattleStructure>({
   },
 });
 
-const Battle = mongoose.model("Battle", BattleSchema, "battles");
+const Battle = mongoose.model("Battle", battleSchema, "battles");
 
 export default Battle;
