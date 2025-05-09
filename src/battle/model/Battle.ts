@@ -15,7 +15,8 @@ const BattleSchema = new Schema<BattleStructure>({
     required: true,
   },
   period: {
-    type: [String],
+    type: String,
+    enum: ["BBY", "ABY"],
     required: true,
   },
   imageUrl: {
