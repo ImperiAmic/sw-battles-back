@@ -8,5 +8,5 @@ export interface BattleStructure {
   description: string;
   lightSide: [string];
   darkSide: [string];
-  winner: boolean;
+  doesLightSideWin: boolean;
 }

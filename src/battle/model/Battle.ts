@@ -34,7 +34,7 @@ const BattleSchema = new Schema<BattleStructure>({
     type: [String],
     required: true,
   },
-  winner: {
+  doesLightSideWin: {
     type: Boolean,
     required: true,
   },
