@@ -6,7 +6,7 @@ export interface BattleStructure {
   period: "BBY" | "ABY";
   imageUrl?: string;
   description: string;
-  lightSide: [string];
-  darkSide: [string];
+  lightSide: string[];
+  darkSide: string[];
   doesLightSideWin: boolean;
 }
