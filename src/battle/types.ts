@@ -10,3 +10,9 @@ export interface BattleStructure {
   darkSide: string[];
   doesLightSideWin: boolean;
 }
+
+export type BattleData = Omit<BattleStructure, "_id">;
+
+export interface ResponseBody {
+  battles: BattleData[];
+}

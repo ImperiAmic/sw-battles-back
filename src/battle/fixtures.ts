@@ -1,7 +1,7 @@
 import { BattleStructure } from "./types.js";
 
 export const battleOfEmpuries: BattleStructure = {
-  _id: "111aaa",
+  _id: "111aaa111aaa111aaa111aaa",
   name: "Battle of Empúries",
   conflict: "Second Punic War",
   year: 218,
@@ -16,7 +16,7 @@ export const battleOfEmpuries: BattleStructure = {
 };
 
 export const battleOfRuscino: BattleStructure = {
-  _id: "222bbb",
+  _id: "222bbb222bbb222bbb222bbb",
   name: "Battle of Ruscino",
   conflict: "Gallic Invasions",
   year: 121,
@@ -31,7 +31,7 @@ export const battleOfRuscino: BattleStructure = {
 };
 
 export const battleOfIlipa: BattleStructure = {
-  _id: "333ccc",
+  _id: "333ccc333ccc333ccc333ccc",
   name: "Battle of Ilipa",
   conflict: "Second Punic War",
   year: 206,
@@ -46,7 +46,7 @@ export const battleOfIlipa: BattleStructure = {
 };
 
 export const battleOfMartorell: BattleStructure = {
-  _id: "444ddd",
+  _id: "444ddd444ddd444ddd444ddd",
   name: "Battle of Martorell",
   conflict: "Catalan Revolt",
   year: 1641,
@@ -61,7 +61,7 @@ export const battleOfMartorell: BattleStructure = {
 };
 
 export const battleOfMontjuic: BattleStructure = {
-  _id: "555eee",
+  _id: "555eee555eee555eee555eee",
   name: "Battle of Montjuïc",
   conflict: "Catalan Revolt",
   year: 1641,
@@ -76,7 +76,7 @@ export const battleOfMontjuic: BattleStructure = {
 };
 
 export const battleOfLleida: BattleStructure = {
-  _id: "666fff",
+  _id: "666fff666fff666fff666fff",
   name: "Battle of Lleida",
   conflict: "Catalan Revolt",
   year: 1644,
@@ -91,7 +91,7 @@ export const battleOfLleida: BattleStructure = {
 };
 
 export const battleOfBarcelona: BattleStructure = {
-  _id: "777ggg",
+  _id: "aaa111aaa111aaa111aaa111",
   name: "Battle of Barcelona",
   conflict: "War of the Spanish Succession",
   year: 1714,
@@ -106,7 +106,7 @@ export const battleOfBarcelona: BattleStructure = {
 };
 
 export const siegeOfRoses: BattleStructure = {
-  _id: "888hhh",
+  _id: "bbb222bbb222bbb222bbb222",
   name: "Siege of Roses",
   conflict: "War of the Pyrenees",
   year: 1794,
@@ -121,7 +121,7 @@ export const siegeOfRoses: BattleStructure = {
 };
 
 export const battleOfTheEbro: BattleStructure = {
-  _id: "999iii",
+  _id: "ccc333ccc333ccc333ccc333",
   name: "Battle of the Ebro",
   conflict: "Spanish Civil War",
   year: 1938,
