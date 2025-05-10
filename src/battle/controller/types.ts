@@ -12,5 +12,5 @@ export type BattleRequest = Request<
 >;
 
 export interface BattleControllerStructure {
-  getBattles: (req: BattleRequest, res: Response) => void;
+  getBattles: (req: BattleRequest, res: Response) => Promise<void>;
 }

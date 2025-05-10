@@ -5,7 +5,7 @@ import { BattleControllerStructure, BattleRequest } from "./types.js";
 import statusCodes from "../../globals/statusCodes.js";
 
 class BattleController implements BattleControllerStructure {
-  constructor(private battleModel: Model<BattleStructure>) {}
+  constructor(private readonly battleModel: Model<BattleStructure>) {}
 
   public getBattles = async (
     req: BattleRequest,
@@ -31,12 +31,12 @@ class BattleController implements BattleControllerStructure {
       .sort({ year: "asc" })
       .exec();
 
-    const battles = bbyPeriodBattles.concat(abyPeriodBattles);
-    const filteredBattles = battles.slice(startPosition, endPosition);
+    const allBattles = [...bbyPeriodBattles, ...abyPeriodBattles];
+    const battles = allBattles.slice(startPosition, endPosition);
 
-    const battlesTotal = (await this.battleModel.find().exec()).length;
+    const battlesTotal = await this.battleModel.countDocuments();
 
-    res.status(statusCodes.OK).json({ filteredBattles, battlesTotal });
+    res.status(statusCodes.OK).json({ battles, battlesTotal });
   };
 }
 
