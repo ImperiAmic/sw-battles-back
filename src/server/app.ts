@@ -5,6 +5,7 @@ import helmet from "helmet";
 import handleHealthCheck from "./middlewares/handleHealthCheck/healthCheck.js";
 import handleEndpointNotFound from "./middlewares/handleEndpointNotFound/handleEndpointNotFound.js";
 import handleErrors from "./middlewares/handleErrors/handleErrors.js";
+import battlesRouter from "../battle/router/battleRouter.js";
 
 const app = express();
 
@@ -12,6 +13,8 @@ app.use(helmet());
 app.use(morgan("dev"));
 
 app.get("/", handleHealthCheck);
+
+app.use("/battles", battlesRouter);
 
 app.use(handleEndpointNotFound);
 app.use(handleErrors);
