@@ -6,11 +6,14 @@ import handleHealthCheck from "./middlewares/handleHealthCheck/healthCheck.js";
 import handleEndpointNotFound from "./middlewares/handleEndpointNotFound/handleEndpointNotFound.js";
 import handleErrors from "./middlewares/handleErrors/handleErrors.js";
 import battlesRouter from "../battle/router/battleRouter.js";
+import handleCorsPolicy from "./middlewares/handleCorsPolicy/handleCorsPolicy.js";
 
 const app = express();
 
 app.use(helmet());
 app.use(morgan("dev"));
+app.use(express.json());
+app.use(handleCorsPolicy);
 
 app.get("/", handleHealthCheck);
 
