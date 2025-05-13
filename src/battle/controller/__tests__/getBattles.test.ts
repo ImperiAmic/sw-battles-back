@@ -16,11 +16,17 @@ beforeEach(() => {
 
   const bbyBattles = battles
     .filter((battle) => battle.period === "BBY")
-    .sort((currentYear, nextYear) => nextYear.year - currentYear.year);
+    .sort((currentYear, nextYear) => nextYear.year - currentYear.year)
+    .sort((currentName, nextName) =>
+      currentName.name.localeCompare(nextName.name),
+    );
 
   const abyBattles = battles
     .filter((battle) => battle.period === "ABY")
-    .sort((currentYear, nextYear) => currentYear.year - nextYear.year);
+    .sort((currentYear, nextYear) => currentYear.year - nextYear.year)
+    .sort((currentName, nextName) =>
+      currentName.name.localeCompare(nextName.name),
+    );
 
   allBattles = [...bbyBattles, ...abyBattles];
 });
@@ -40,12 +46,16 @@ describe("Given the getBattle method of BattleController", () => {
     const filterBattlesByYear = (query: { year: "desc" | "asc" }) => {
       const sortedByPeriodAndYearBattles =
         query.year === "desc"
-          ? sortedByPeriodBattles.sort(
-              (currentYear, nextYear) => nextYear.year - currentYear.year,
-            )
-          : sortedByPeriodBattles.sort(
-              (currentYear, nextYear) => currentYear.year - nextYear.year,
-            );
+          ? sortedByPeriodBattles
+              .sort((currentYear, nextYear) => nextYear.year - currentYear.year)
+              .sort((currentName, nextName) =>
+                currentName.name.localeCompare(nextName.name),
+              )
+          : sortedByPeriodBattles
+              .sort((currentYear, nextYear) => currentYear.year - nextYear.year)
+              .sort((currentName, nextName) =>
+                currentName.name.localeCompare(nextName.name),
+              );
 
       return {
         exec: jest.fn().mockResolvedValue(sortedByPeriodAndYearBattles),

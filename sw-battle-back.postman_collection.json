@@ -1,0 +1,68 @@
+{
+  "info": {
+    "_postman_id": "4f55f020-e620-4d18-a5c8-24a32db324c0",
+    "name": "Battles",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43656304",
+    "_collection_link": "https://raimon-8141776.postman.co/workspace/Raimon's-Workspace~d107acef-f90a-401e-8897-bc541e02e7f4/collection/43656304-4f55f020-e620-4d18-a5c8-24a32db324c0?action=share&source=collection_link&creator=43656304"
+  },
+  "item": [
+    {
+      "name": "/",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:6001/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "6001",
+          "path": [""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/battles",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:6001/battles",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "6001",
+          "path": ["battles"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/battles?page=1",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:6001/battles?page=1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "6001",
+          "path": ["battles"],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
