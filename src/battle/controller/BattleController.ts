@@ -23,12 +23,12 @@ class BattleController implements BattleControllerStructure {
 
     const bbyPeriodBattles = await this.battleModel
       .find<BattleStructure>({ period: "BBY" })
-      .sort({ year: "desc" })
+      .sort({ year: "desc", name: "asc" })
       .exec();
 
     const abyPeriodBattles = await this.battleModel
       .find<BattleStructure>({ period: "ABY" })
-      .sort({ year: "asc" })
+      .sort({ year: "asc", name: "asc" })
       .exec();
 
     const allBattles = [...bbyPeriodBattles, ...abyPeriodBattles];
