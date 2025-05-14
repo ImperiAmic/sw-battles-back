@@ -71,13 +71,17 @@ class BattleController implements BattleControllerStructure {
       return;
     }
 
-    const foundBattle = await this.battleModel
-      .findByIdAndUpdate(battleId, {
-        doesLightSideWin: !battle.doesLightSideWin,
-      })
+    const updatedBattle = await this.battleModel
+      .findByIdAndUpdate(
+        battleId,
+        {
+          doesLightSideWin: !battle.doesLightSideWin,
+        },
+        { new: true },
+      )
       .exec();
 
-    if (!foundBattle) {
+    if (!updatedBattle) {
       const error = new ServerError(
         statusCodes.BAD_REQUEST,
         "Could not be able to update the winner of the battle",
@@ -86,8 +90,6 @@ class BattleController implements BattleControllerStructure {
       next(error);
       return;
     }
-
-    const updatedBattle = await this.battleModel.findById(battleId).exec();
 
     res.status(200).json({ battle: updatedBattle });
   };
