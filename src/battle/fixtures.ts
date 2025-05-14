@@ -146,3 +146,18 @@ export const catalanBattles: BattleStructure[] = [
   siegeOfRoses,
   battleOfEmpuries,
 ];
+
+export const wrongIdBattleOfTheEbro: BattleStructure = {
+  _id: "ccc333ccc333ccc333ccc",
+  name: "Battle of the Ebro",
+  conflict: "Spanish Civil War",
+  year: 1938,
+  period: "ABY",
+  imageUrl:
+    "https://upload.wikimedia.org/wikipedia/commons/4/4c/Batalla_del_Ebre.jpg",
+  description:
+    "The largest and bloodiest battle of the Spanish Civil War, fought largely in Catalonia. Despite initial Republican advances, Franco's forces ultimately prevailed.",
+  lightSide: ["Spanish Republic"],
+  darkSide: ["Nationalist Spain"],
+  doesLightSideWin: false,
+};

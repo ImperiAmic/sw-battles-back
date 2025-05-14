@@ -149,4 +149,43 @@ describe("Given the updateBattleWinner method of BattleController", () => {
       expect(next).toHaveBeenCalledWith(error);
     });
   });
+
+  describe("When it receives a request with an ID which is not correct", () => {
+    const req: Pick<BattleRequest, "params"> = {
+      params: {
+        battleId: "111aaa111aaa111aaa111aa",
+      },
+    };
+
+    const battleModel: Pick<
+      Model<BattleStructure>,
+      "findById" | "findByIdAndUpdate"
+    > = {
+      findById: jest.fn().mockReturnValue({
+        exec: jest.fn().mockResolvedValue(null),
+      }),
+      findByIdAndUpdate: jest.fn().mockReturnValue({
+        exec: jest.fn().mockResolvedValue(null),
+      }),
+    };
+
+    test("Then it should next 'The battle identifier to update the winner of the battle is not correct", async () => {
+      const error = new ServerError(
+        statusCodes.NOT_ACCEPTABLE,
+        "The battle identifier to update the winner of the battle is not correct",
+      );
+
+      const battleController = new BattleController(
+        battleModel as Model<BattleStructure>,
+      );
+
+      await battleController.updateBattleWinner(
+        req as BattleRequest,
+        res as Response,
+        next as NextFunction,
+      );
+
+      expect(next).toHaveBeenCalledWith(error);
+    });
+  });
 });

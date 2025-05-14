@@ -13,6 +13,15 @@ export interface BattleStructure {
 
 export type BattleData = Omit<BattleStructure, "_id">;
 
-export interface ResponseBody {
+export interface GetBattlesResponseBody {
   battles: BattleData[];
+  battlesTotal: number;
+}
+
+export interface PatchBattleWinnerResponseBody {
+  battle: BattleData;
+}
+
+export interface ResponseBodyError {
+  error: string;
 }
