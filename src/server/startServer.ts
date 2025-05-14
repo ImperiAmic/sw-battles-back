@@ -1,6 +1,6 @@
-import createDebug from "debug";
-import app from "./app.js";
 import chalk from "chalk";
+import app from "./app.js";
+import createDebug from "debug";
 
 const debug = createDebug("battles:server:start");
 

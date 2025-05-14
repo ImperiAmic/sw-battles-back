@@ -1,18 +1,18 @@
+import mongoose from "mongoose";
+import request from "supertest";
 import { MongoMemoryServer } from "mongodb-memory-server";
-import connectToDatabase from "../../../database/connectToDatabase.js";
+import app from "../../../server/app.js";
 import Battle from "../../model/Battle.js";
+import connectToDatabase from "../../../database/connectToDatabase.js";
+import {
+  PatchBattleWinnerResponseBody,
+  ResponseBodyError,
+} from "../../types.js";
 import {
   battleOfEmpuries,
   battleOfLleida,
   wrongIdBattleOfTheEbro,
 } from "../../fixtures.js";
-import mongoose from "mongoose";
-import app from "../../../server/app.js";
-import request from "supertest";
-import {
-  PatchBattleWinnerResponseBody,
-  ResponseBodyError,
-} from "../../types.js";
 
 let server: MongoMemoryServer;
 

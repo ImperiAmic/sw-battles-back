@@ -4,8 +4,8 @@ import { BattleRequest } from "../types.js";
 import { BattleStructure } from "../../types.js";
 import { battleOfEmpuries } from "../../fixtures.js";
 import BattleController from "../BattleController.js";
-import ServerError from "../../../server/ServerError/ServerError.js";
 import statusCodes from "../../../globals/statusCodes.js";
+import ServerError from "../../../server/ServerError/ServerError.js";
 
 beforeEach(() => {
   jest.clearAllMocks();

@@ -1,9 +1,9 @@
-import { NextFunction, Response } from "express";
 import { Model } from "mongoose";
+import { NextFunction, Response } from "express";
 import { BattleStructure } from "../types.js";
-import { BattleControllerStructure, BattleRequest } from "./types.js";
 import statusCodes from "../../globals/statusCodes.js";
 import ServerError from "../../server/ServerError/ServerError.js";
+import { BattleControllerStructure, BattleRequest } from "./types.js";
 
 class BattleController implements BattleControllerStructure {
   constructor(private readonly battleModel: Model<BattleStructure>) {}
