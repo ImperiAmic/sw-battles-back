@@ -1,12 +1,12 @@
 import "dotenv/config";
-import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
-import handleHealthCheck from "./middlewares/handleHealthCheck/healthCheck.js";
-import handleEndpointNotFound from "./middlewares/handleEndpointNotFound/handleEndpointNotFound.js";
-import handleErrors from "./middlewares/handleErrors/handleErrors.js";
+import express from "express";
 import battlesRouter from "../battle/router/battleRouter.js";
+import handleErrors from "./middlewares/handleErrors/handleErrors.js";
+import handleHealthCheck from "./middlewares/handleHealthCheck/healthCheck.js";
 import handleCorsPolicy from "./middlewares/handleCorsPolicy/handleCorsPolicy.js";
+import handleEndpointNotFound from "./middlewares/handleEndpointNotFound/handleEndpointNotFound.js";
 
 const app = express();
 

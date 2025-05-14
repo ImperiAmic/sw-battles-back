@@ -1,9 +1,9 @@
-import { Response } from "express";
 import { Model } from "mongoose";
+import { Response } from "express";
 import { BattleRequest } from "../types.js";
 import { BattleStructure } from "../../types.js";
-import BattleController from "../BattleController.js";
 import { catalanBattles } from "../../fixtures.js";
+import BattleController from "../BattleController.js";
 import statusCodes from "../../../globals/statusCodes.js";
 
 let battles = [...catalanBattles];

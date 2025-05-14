@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import ServerError from "../../ServerError/ServerError.js";
 import statusCodes from "../../../globals/statusCodes.js";
+import ServerError from "../../ServerError/ServerError.js";
 
 const handleEndpointNotFound = (
   _req: Request,

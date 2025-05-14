@@ -1,9 +1,9 @@
-import { MongoMemoryServer } from "mongodb-memory-server";
 import mongoose from "mongoose";
 import request from "supertest";
+import { MongoMemoryServer } from "mongodb-memory-server";
 import app from "../../../server/app.js";
 import Battle from "../../model/Battle.js";
-import { ResponseBody } from "../../types.js";
+import { GetBattlesResponseBody } from "../../types.js";
 import connectToDatabase from "../../../database/connectToDatabase.js";
 import { battleOfBarcelona, battleOfEmpuries } from "../../fixtures.js";
 
@@ -37,7 +37,7 @@ describe("Given the GET /battles endpoint", () => {
       const expectedEmpuriesBattleName = "Battle of Empúries";
 
       const response = await request(app).get("/battles");
-      const responseBody = response.body as ResponseBody;
+      const responseBody = response.body as GetBattlesResponseBody;
 
       expect(responseBody.battles).toContainEqual(
         expect.objectContaining({ name: expectedBarcelonaBattleName }),
@@ -45,6 +45,15 @@ describe("Given the GET /battles endpoint", () => {
       expect(responseBody.battles).toContainEqual(
         expect.objectContaining({ name: expectedEmpuriesBattleName }),
       );
+    });
+
+    test("Then it should response with Barcelona and Empúries battles", async () => {
+      const expectedBattlesTotal = 2;
+
+      const response = await request(app).get("/battles");
+      const responseBody = response.body as GetBattlesResponseBody;
+
+      expect(responseBody.battlesTotal).toBe(expectedBattlesTotal);
     });
   });
 });

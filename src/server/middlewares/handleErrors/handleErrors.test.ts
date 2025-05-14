@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import handleErrors from "./handleErrors.js";
-import ServerError from "../../ServerError/ServerError.js";
 import statusCodes from "../../../globals/statusCodes.js";
+import ServerError from "../../ServerError/ServerError.js";
 
 describe("Given the handleErrors middleware", () => {
   const req = {};

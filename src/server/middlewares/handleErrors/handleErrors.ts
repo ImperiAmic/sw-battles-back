@@ -1,8 +1,8 @@
 import "dotenv/config";
-import { NextFunction, Request, Response } from "express";
 import createDebug from "debug";
-import ServerError from "../../ServerError/ServerError.js";
+import { NextFunction, Request, Response } from "express";
 import statusCodes from "../../../globals/statusCodes.js";
+import ServerError from "../../ServerError/ServerError.js";
 
 const debug = createDebug("battles:server:error");
 
