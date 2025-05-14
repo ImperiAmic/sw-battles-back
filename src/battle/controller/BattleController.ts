@@ -1,8 +1,9 @@
-import { Response } from "express";
+import { NextFunction, Response } from "express";
 import { Model } from "mongoose";
 import { BattleStructure } from "../types.js";
 import { BattleControllerStructure, BattleRequest } from "./types.js";
 import statusCodes from "../../globals/statusCodes.js";
+import ServerError from "../../server/ServerError/ServerError.js";
 
 class BattleController implements BattleControllerStructure {
   constructor(private readonly battleModel: Model<BattleStructure>) {}
@@ -37,6 +38,58 @@ class BattleController implements BattleControllerStructure {
     const battlesTotal = await this.battleModel.countDocuments();
 
     res.status(statusCodes.OK).json({ battles, battlesTotal });
+  };
+
+  public updateBattleWinner = async (
+    req: BattleRequest,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
+    const { battleId } = req.params;
+
+    const battleIdRequiredLength = 24;
+
+    if (battleId.length !== battleIdRequiredLength) {
+      const error = new ServerError(
+        statusCodes.NOT_ACCEPTABLE,
+        "The battle identifier to update the winner of the battle is not correct",
+      );
+
+      next(error);
+      return;
+    }
+
+    const battle = await this.battleModel.findById(battleId).exec();
+
+    if (!battle) {
+      const error = new ServerError(
+        statusCodes.NOT_FOUND,
+        "The battle identifier has not been found",
+      );
+
+      next(error);
+      return;
+    }
+
+    const foundBattle = await this.battleModel
+      .findByIdAndUpdate(battleId, {
+        doesLightSideWin: !battle.doesLightSideWin,
+      })
+      .exec();
+
+    if (!foundBattle) {
+      const error = new ServerError(
+        statusCodes.BAD_REQUEST,
+        "Could not be able to update the winner of the battle",
+      );
+
+      next(error);
+      return;
+    }
+
+    const updatedBattle = await this.battleModel.findById(battleId).exec();
+
+    res.status(200).json({ battle: updatedBattle });
   };
 }
 
