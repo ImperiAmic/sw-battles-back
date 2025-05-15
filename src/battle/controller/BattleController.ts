@@ -1,16 +1,21 @@
 import { Model } from "mongoose";
-import { NextFunction, Response } from "express";
+import { NextFunction } from "express";
 import { BattleStructure } from "../types.js";
 import statusCodes from "../../globals/statusCodes.js";
 import ServerError from "../../server/ServerError/ServerError.js";
-import { BattleControllerStructure, BattleRequest } from "./types.js";
+import {
+  BattleControllerStructure,
+  BattleRequest,
+  GetBattleResponse,
+  UpdateBattleWinnerResponse,
+} from "./types.js";
 
 class BattleController implements BattleControllerStructure {
   constructor(private readonly battleModel: Model<BattleStructure>) {}
 
   public getBattles = async (
     req: BattleRequest,
-    res: Response,
+    res: GetBattleResponse,
   ): Promise<void> => {
     let { page } = req.query;
 
@@ -42,7 +47,7 @@ class BattleController implements BattleControllerStructure {
 
   public updateBattleWinner = async (
     req: BattleRequest,
-    res: Response,
+    res: UpdateBattleWinnerResponse,
     next: NextFunction,
   ): Promise<void> => {
     const { battleId } = req.params;
@@ -81,17 +86,7 @@ class BattleController implements BattleControllerStructure {
       )
       .exec();
 
-    if (!updatedBattle) {
-      const error = new ServerError(
-        statusCodes.BAD_REQUEST,
-        "Could not be able to update the winner of the battle",
-      );
-
-      next(error);
-      return;
-    }
-
-    res.status(200).json({ battle: updatedBattle });
+    res.status(200).json({ battle: updatedBattle! });
   };
 }
 

@@ -1,10 +1,10 @@
 import { Model } from "mongoose";
 import { Response } from "express";
-import { BattleRequest } from "../types.js";
 import { BattleStructure } from "../../types.js";
 import { catalanBattles } from "../../fixtures.js";
 import BattleController from "../BattleController.js";
 import statusCodes from "../../../globals/statusCodes.js";
+import { BattleRequest, GetBattleResponse } from "../types.js";
 
 let battles = [...catalanBattles];
 const battlesTotal = catalanBattles.length;
@@ -32,7 +32,7 @@ beforeEach(() => {
 });
 
 describe("Given the getBattle method of BattleController", () => {
-  const res: Pick<Response, "status" | "json"> = {
+  const res: Pick<GetBattleResponse, "status" | "json"> = {
     status: jest.fn().mockReturnThis(),
     json: jest.fn(),
   };
