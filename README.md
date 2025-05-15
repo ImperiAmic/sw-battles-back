@@ -6,15 +6,14 @@ This is the backend service for the Star Wars Battles application. Built using E
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Functional Requirements](#functional-requirements)
-- [Technical Requirements](#technical-requirements)
-- [Getting Started](#getting-started)
-- [Available Scripts](#available-scripts)
-- [API Endpoints](#api-endpoints)
-- [Testing](#testing)
-- [Deployment](#deployment)
-- [License](#license)
+- [Overview](#-overview)
+- [Core Stack](#️-core-stack)
+- [Getting Started](#-getting-started)
+- [Available Scripts](#-available-scripts)
+- [API Endpoints](#-api-endpoints)
+- [Testing](#-testing)
+- [Deployment](#-deployment)
+- [License](#-license)
 
 ---
 

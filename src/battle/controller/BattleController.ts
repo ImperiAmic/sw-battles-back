@@ -56,7 +56,7 @@ class BattleController implements BattleControllerStructure {
 
     if (battleId.length !== battleIdRequiredLength) {
       const error = new ServerError(
-        statusCodes.NOT_ACCEPTABLE,
+        statusCodes.BAD_REQUEST,
         "The battle identifier to update the winner of the battle is not correct",
       );
 

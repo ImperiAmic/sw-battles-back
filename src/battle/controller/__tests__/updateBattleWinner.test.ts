@@ -132,7 +132,7 @@ describe("Given the updateBattleWinner method of BattleController", () => {
 
     test("Then it should next 'The battle identifier to update the winner of the battle is not correct", async () => {
       const error = new ServerError(
-        statusCodes.NOT_ACCEPTABLE,
+        statusCodes.BAD_REQUEST,
         "The battle identifier to update the winner of the battle is not correct",
       );
 
