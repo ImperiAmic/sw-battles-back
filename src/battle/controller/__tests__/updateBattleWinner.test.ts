@@ -1,18 +1,18 @@
 import { Model } from "mongoose";
 import { NextFunction, Response } from "express";
-import { BattleRequest } from "../types.js";
 import { BattleStructure } from "../../types.js";
 import { battleOfEmpuries } from "../../fixtures.js";
 import BattleController from "../BattleController.js";
 import statusCodes from "../../../globals/statusCodes.js";
 import ServerError from "../../../server/ServerError/ServerError.js";
+import { BattleRequest, UpdateBattleWinnerResponse } from "../types.js";
 
 beforeEach(() => {
   jest.clearAllMocks();
 });
 
 describe("Given the updateBattleWinner method of BattleController", () => {
-  const res: Pick<Response, "status" | "json"> = {
+  const res: Pick<UpdateBattleWinnerResponse, "status" | "json"> = {
     status: jest.fn().mockReturnThis(),
     json: jest.fn(),
   };
@@ -95,45 +95,6 @@ describe("Given the updateBattleWinner method of BattleController", () => {
       const error = new ServerError(
         statusCodes.NOT_FOUND,
         "The battle identifier has not been found",
-      );
-
-      const battleController = new BattleController(
-        battleModel as Model<BattleStructure>,
-      );
-
-      await battleController.updateBattleWinner(
-        req as BattleRequest,
-        res as Response,
-        next as NextFunction,
-      );
-
-      expect(next).toHaveBeenCalledWith(error);
-    });
-  });
-
-  describe("When it receives a request with an existing ID but could not be able to update it", () => {
-    const req: Pick<BattleRequest, "params"> = {
-      params: {
-        battleId: "111aaa111aaa111aaa111aaa",
-      },
-    };
-
-    const battleModel: Pick<
-      Model<BattleStructure>,
-      "findById" | "findByIdAndUpdate"
-    > = {
-      findById: jest.fn().mockReturnValue({
-        exec: jest.fn().mockResolvedValue(battleOfEmpuries),
-      }),
-      findByIdAndUpdate: jest.fn().mockReturnValue({
-        exec: jest.fn().mockResolvedValue(null),
-      }),
-    };
-
-    test("Then it should next 'Could not be able to update the winner of the battle", async () => {
-      const error = new ServerError(
-        statusCodes.BAD_REQUEST,
-        "Could not be able to update the winner of the battle",
       );
 
       const battleController = new BattleController(

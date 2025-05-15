@@ -1,25 +1,40 @@
 import { NextFunction, Request, Response } from "express";
+import { BattleStructure } from "../types.js";
 
-interface BattleParams {
+export type BattleParams = {
   battleId: string;
-}
+};
 
-interface BattleQuery {
+export type BattleQuery = {
   page: string;
-}
+};
 
 export type BattleRequest = Request<
   BattleParams,
-  Record<string, never>,
-  Record<string, never>,
+  Record<string, unknown>,
+  Record<string, unknown>,
   BattleQuery
 >;
 
+type GetBattleResponseBody = {
+  battles: BattleStructure[];
+  battlesTotal: number;
+};
+
+export type GetBattleResponse = Response<GetBattleResponseBody>;
+
+type UpdateBattleWinnerResponseBody = {
+  battle: BattleStructure;
+};
+
+export type UpdateBattleWinnerResponse =
+  Response<UpdateBattleWinnerResponseBody>;
+
 export interface BattleControllerStructure {
-  getBattles: (req: BattleRequest, res: Response) => Promise<void>;
+  getBattles: (req: BattleRequest, res: GetBattleResponse) => Promise<void>;
   updateBattleWinner: (
     req: BattleRequest,
-    res: Response,
+    res: UpdateBattleWinnerResponse,
     next: NextFunction,
   ) => Promise<void>;
 }
