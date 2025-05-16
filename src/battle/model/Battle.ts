@@ -2,7 +2,7 @@ import mongoose, { Schema } from "mongoose";
 import { BattleStructure } from "../types.js";
 
 const battleSchema = new Schema<BattleStructure>({
-  name: {
+  battleName: {
     type: String,
     required: true,
   },

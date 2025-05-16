@@ -1,6 +1,6 @@
 export interface BattleStructure {
   _id: string;
-  name: string;
+  battleName: string;
   conflict: string;
   year: number;
   period: "BBY" | "ABY";

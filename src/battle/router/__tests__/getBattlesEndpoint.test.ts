@@ -40,10 +40,10 @@ describe("Given the GET /battles endpoint", () => {
       const responseBody = response.body as GetBattlesResponseBody;
 
       expect(responseBody.battles).toContainEqual(
-        expect.objectContaining({ name: expectedBarcelonaBattleName }),
+        expect.objectContaining({ battleName: expectedBarcelonaBattleName }),
       );
       expect(responseBody.battles).toContainEqual(
-        expect.objectContaining({ name: expectedEmpuriesBattleName }),
+        expect.objectContaining({ battleName: expectedEmpuriesBattleName }),
       );
     });
 
