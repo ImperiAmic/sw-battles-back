@@ -7,7 +7,7 @@ import {
   BattleControllerStructure,
   BattleRequest,
   GetBattleResponse,
-  UpdateBattleWinnerResponse,
+  ToggleBattleWinnerResponse,
 } from "./types.js";
 
 class BattleController implements BattleControllerStructure {
@@ -29,12 +29,12 @@ class BattleController implements BattleControllerStructure {
 
     const bbyPeriodBattles = await this.battleModel
       .find<BattleStructure>({ period: "BBY" })
-      .sort({ year: "desc", name: "asc" })
+      .sort({ year: "desc", battleName: "asc" })
       .exec();
 
     const abyPeriodBattles = await this.battleModel
       .find<BattleStructure>({ period: "ABY" })
-      .sort({ year: "asc", name: "asc" })
+      .sort({ year: "asc", battleName: "asc" })
       .exec();
 
     const allBattles = [...bbyPeriodBattles, ...abyPeriodBattles];
@@ -45,9 +45,9 @@ class BattleController implements BattleControllerStructure {
     res.status(statusCodes.OK).json({ battles, battlesTotal });
   };
 
-  public updateBattleWinner = async (
+  public toggleBattleWinner = async (
     req: BattleRequest,
-    res: UpdateBattleWinnerResponse,
+    res: ToggleBattleWinnerResponse,
     next: NextFunction,
   ): Promise<void> => {
     const { battleId } = req.params;

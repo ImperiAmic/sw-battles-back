@@ -18,14 +18,14 @@ beforeEach(() => {
     .filter((battle) => battle.period === "BBY")
     .sort((currentYear, nextYear) => nextYear.year - currentYear.year)
     .sort((currentName, nextName) =>
-      currentName.name.localeCompare(nextName.name),
+      currentName.battleName.localeCompare(nextName.battleName),
     );
 
   const abyBattles = battles
     .filter((battle) => battle.period === "ABY")
     .sort((currentYear, nextYear) => currentYear.year - nextYear.year)
     .sort((currentName, nextName) =>
-      currentName.name.localeCompare(nextName.name),
+      currentName.battleName.localeCompare(nextName.battleName),
     );
 
   allBattles = [...bbyBattles, ...abyBattles];
@@ -49,12 +49,12 @@ describe("Given the getBattle method of BattleController", () => {
           ? sortedByPeriodBattles
               .sort((currentYear, nextYear) => nextYear.year - currentYear.year)
               .sort((currentName, nextName) =>
-                currentName.name.localeCompare(nextName.name),
+                currentName.battleName.localeCompare(nextName.battleName),
               )
           : sortedByPeriodBattles
               .sort((currentYear, nextYear) => currentYear.year - nextYear.year)
               .sort((currentName, nextName) =>
-                currentName.name.localeCompare(nextName.name),
+                currentName.battleName.localeCompare(nextName.battleName),
               );
 
       return {

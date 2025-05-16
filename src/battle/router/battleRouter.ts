@@ -7,6 +7,6 @@ const battlesRouter = Router();
 const battleController = new BattleController(Battle);
 
 battlesRouter.get("/", battleController.getBattles);
-battlesRouter.patch("/:battleId", battleController.updateBattleWinner);
+battlesRouter.patch("/:battleId", battleController.toggleBattleWinner);
 
 export default battlesRouter;

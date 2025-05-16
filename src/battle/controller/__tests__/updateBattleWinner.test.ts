@@ -5,14 +5,14 @@ import { battleOfEmpuries } from "../../fixtures.js";
 import BattleController from "../BattleController.js";
 import statusCodes from "../../../globals/statusCodes.js";
 import ServerError from "../../../server/ServerError/ServerError.js";
-import { BattleRequest, UpdateBattleWinnerResponse } from "../types.js";
+import { BattleRequest, ToggleBattleWinnerResponse } from "../types.js";
 
 beforeEach(() => {
   jest.clearAllMocks();
 });
 
-describe("Given the updateBattleWinner method of BattleController", () => {
-  const res: Pick<UpdateBattleWinnerResponse, "status" | "json"> = {
+describe("Given the toggleBattleWinner method of BattleController", () => {
+  const res: Pick<ToggleBattleWinnerResponse, "status" | "json"> = {
     status: jest.fn().mockReturnThis(),
     json: jest.fn(),
   };
@@ -46,7 +46,7 @@ describe("Given the updateBattleWinner method of BattleController", () => {
         battleModel as Model<BattleStructure>,
       );
 
-      await battleController.updateBattleWinner(
+      await battleController.toggleBattleWinner(
         req as BattleRequest,
         res as Response,
         next as NextFunction,
@@ -60,7 +60,7 @@ describe("Given the updateBattleWinner method of BattleController", () => {
         battleModel as Model<BattleStructure>,
       );
 
-      await battleController.updateBattleWinner(
+      await battleController.toggleBattleWinner(
         req as BattleRequest,
         res as Response,
         next as NextFunction,
@@ -101,7 +101,7 @@ describe("Given the updateBattleWinner method of BattleController", () => {
         battleModel as Model<BattleStructure>,
       );
 
-      await battleController.updateBattleWinner(
+      await battleController.toggleBattleWinner(
         req as BattleRequest,
         res as Response,
         next as NextFunction,
@@ -140,7 +140,7 @@ describe("Given the updateBattleWinner method of BattleController", () => {
         battleModel as Model<BattleStructure>,
       );
 
-      await battleController.updateBattleWinner(
+      await battleController.toggleBattleWinner(
         req as BattleRequest,
         res as Response,
         next as NextFunction,

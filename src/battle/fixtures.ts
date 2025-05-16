@@ -2,7 +2,7 @@ import { BattleStructure } from "./types.js";
 
 export const battleOfEmpuries: BattleStructure = {
   _id: "111aaa111aaa111aaa111aaa",
-  name: "Battle of Empúries",
+  battleName: "Battle of Empúries",
   conflict: "Second Punic War",
   year: 218,
   period: "BBY",
@@ -17,7 +17,7 @@ export const battleOfEmpuries: BattleStructure = {
 
 export const battleOfRuscino: BattleStructure = {
   _id: "222bbb222bbb222bbb222bbb",
-  name: "Battle of Ruscino",
+  battleName: "Battle of Ruscino",
   conflict: "Gallic Invasions",
   year: 121,
   period: "BBY",
@@ -32,7 +32,7 @@ export const battleOfRuscino: BattleStructure = {
 
 export const battleOfIlipa: BattleStructure = {
   _id: "333ccc333ccc333ccc333ccc",
-  name: "Battle of Ilipa",
+  battleName: "Battle of Ilipa",
   conflict: "Second Punic War",
   year: 206,
   period: "BBY",
@@ -47,7 +47,7 @@ export const battleOfIlipa: BattleStructure = {
 
 export const battleOfMartorell: BattleStructure = {
   _id: "444ddd444ddd444ddd444ddd",
-  name: "Battle of Martorell",
+  battleName: "Battle of Martorell",
   conflict: "Catalan Revolt",
   year: 1641,
   period: "ABY",
@@ -62,7 +62,7 @@ export const battleOfMartorell: BattleStructure = {
 
 export const battleOfMontjuic: BattleStructure = {
   _id: "555eee555eee555eee555eee",
-  name: "Battle of Montjuïc",
+  battleName: "Battle of Montjuïc",
   conflict: "Catalan Revolt",
   year: 1641,
   period: "ABY",
@@ -77,7 +77,7 @@ export const battleOfMontjuic: BattleStructure = {
 
 export const battleOfLleida: BattleStructure = {
   _id: "666fff666fff666fff666fff",
-  name: "Battle of Lleida",
+  battleName: "Battle of Lleida",
   conflict: "Catalan Revolt",
   year: 1644,
   period: "ABY",
@@ -92,7 +92,7 @@ export const battleOfLleida: BattleStructure = {
 
 export const battleOfBarcelona: BattleStructure = {
   _id: "aaa111aaa111aaa111aaa111",
-  name: "Battle of Barcelona",
+  battleName: "Battle of Barcelona",
   conflict: "War of the Spanish Succession",
   year: 1714,
   period: "ABY",
@@ -107,7 +107,7 @@ export const battleOfBarcelona: BattleStructure = {
 
 export const siegeOfRoses: BattleStructure = {
   _id: "bbb222bbb222bbb222bbb222",
-  name: "Siege of Roses",
+  battleName: "Siege of Roses",
   conflict: "War of the Pyrenees",
   year: 1794,
   period: "ABY",
@@ -122,7 +122,7 @@ export const siegeOfRoses: BattleStructure = {
 
 export const battleOfTheEbro: BattleStructure = {
   _id: "ccc333ccc333ccc333ccc333",
-  name: "Battle of the Ebro",
+  battleName: "Battle of the Ebro",
   conflict: "Spanish Civil War",
   year: 1938,
   period: "ABY",
@@ -149,7 +149,7 @@ export const catalanBattles: BattleStructure[] = [
 
 export const wrongIdBattleOfTheEbro: BattleStructure = {
   _id: "ccc333ccc333ccc333ccc",
-  name: "Battle of the Ebro",
+  battleName: "Battle of the Ebro",
   conflict: "Spanish Civil War",
   year: 1938,
   period: "ABY",

@@ -23,18 +23,18 @@ type GetBattleResponseBody = {
 
 export type GetBattleResponse = Response<GetBattleResponseBody>;
 
-type UpdateBattleWinnerResponseBody = {
+type ToggleBattleWinnerResponseBody = {
   battle: BattleStructure;
 };
 
-export type UpdateBattleWinnerResponse =
-  Response<UpdateBattleWinnerResponseBody>;
+export type ToggleBattleWinnerResponse =
+  Response<ToggleBattleWinnerResponseBody>;
 
 export interface BattleControllerStructure {
   getBattles: (req: BattleRequest, res: GetBattleResponse) => Promise<void>;
-  updateBattleWinner: (
+  toggleBattleWinner: (
     req: BattleRequest,
-    res: UpdateBattleWinnerResponse,
+    res: ToggleBattleWinnerResponse,
     next: NextFunction,
   ) => Promise<void>;
 }
