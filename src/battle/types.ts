@@ -18,7 +18,7 @@ export interface GetBattlesResponseBody {
   battlesTotal: number;
 }
 
-export interface PatchBattleWinnerResponseBody {
+export interface BattleResponseBody {
   battle: BattleData;
 }
 
