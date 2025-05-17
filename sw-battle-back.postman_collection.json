@@ -80,6 +80,23 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "/battles/battleId",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://raimon-sola-202502-back.onrender.com/battles/battleId",
+          "protocol": "https",
+          "host": ["raimon-sola-202502-back", "onrender", "com"],
+          "path": ["battles", "battleId"]
+        }
+      },
+      "response": []
     }
   ]
 }
