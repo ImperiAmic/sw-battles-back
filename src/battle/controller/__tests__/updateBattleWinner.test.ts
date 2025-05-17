@@ -133,7 +133,7 @@ describe("Given the toggleBattleWinner method of BattleController", () => {
     test("Then it should next 'The battle identifier to update the winner of the battle is not correct", async () => {
       const error = new ServerError(
         statusCodes.BAD_REQUEST,
-        "The battle identifier to update the winner of the battle is not correct",
+        "The battle identifier has not been found",
       );
 
       const battleController = new BattleController(
