@@ -28,7 +28,7 @@ afterAll(async () => {
   await server.stop();
 });
 
-describe("Given the PATCH /battles/:battleID endpoint", () => {
+describe("Given the PATCH /battles/:battleId endpoint", () => {
   describe("When it receives a request with Battle of Empúries", () => {
     test("Then it should response with a 200 status code", async () => {
       const expectedStatusCode = 200;
@@ -47,8 +47,7 @@ describe("Given the PATCH /battles/:battleID endpoint", () => {
   describe("When it receives a request with an invalid ID", () => {
     test("Then it should response with 400 status code and 'The battle identifier to update the winner of the battle is not correct' error", async () => {
       const expectedStatusCode = 400;
-      const expectErrorMessage =
-        "The battle identifier to update the winner of the battle is not correct";
+      const expectErrorMessage = "The battle identifier is not correct";
 
       const response = await request(app).patch(
         `/battles/${wrongIdBattleOfTheEbro._id}`,

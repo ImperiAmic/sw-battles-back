@@ -52,18 +52,6 @@ class BattleController implements BattleControllerStructure {
   ): Promise<void> => {
     const { battleId } = req.params;
 
-    const battleIdRequiredLength = 24;
-
-    if (battleId.length !== battleIdRequiredLength) {
-      const error = new ServerError(
-        statusCodes.BAD_REQUEST,
-        "The battle identifier to update the winner of the battle is not correct",
-      );
-
-      next(error);
-      return;
-    }
-
     const battle = await this.battleModel.findById(battleId).exec();
 
     if (!battle) {
