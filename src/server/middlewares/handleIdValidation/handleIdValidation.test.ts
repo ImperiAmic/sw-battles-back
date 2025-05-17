@@ -3,7 +3,7 @@ import { BattleRequest } from "../../../battle/controller/types.js";
 import handleIdValidation from "./handleIdValidation.js";
 import ServerError from "../../ServerError/ServerError.js";
 import statusCodes from "../../../globals/statusCodes.js";
-import { siegeOfRoses } from "../../../battle/fixtures.js";
+import { rosesBattle } from "../../../battle/fixtures.js";
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -40,7 +40,7 @@ describe("Given the handleIdValidation middleware", () => {
     test("Then it should next it", () => {
       const req: Pick<BattleRequest, "params"> = {
         params: {
-          battleId: siegeOfRoses._id,
+          battleId: rosesBattle._id,
         },
       };
 

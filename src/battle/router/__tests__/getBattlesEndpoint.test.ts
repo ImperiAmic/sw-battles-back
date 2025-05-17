@@ -5,7 +5,7 @@ import app from "../../../server/app.js";
 import Battle from "../../model/Battle.js";
 import { GetBattlesResponseBody } from "../../types.js";
 import connectToDatabase from "../../../database/connectToDatabase.js";
-import { battleOfBarcelona, battleOfEmpuries } from "../../fixtures.js";
+import { barcelonaBattle, empuriesBattle } from "../../fixtures.js";
 
 let server: MongoMemoryServer;
 
@@ -14,7 +14,7 @@ beforeAll(async () => {
   const serverUri = server.getUri();
   await connectToDatabase(serverUri);
 
-  await Battle.create(battleOfBarcelona, battleOfEmpuries);
+  await Battle.create(barcelonaBattle, empuriesBattle);
 });
 
 afterAll(async () => {

@@ -7,7 +7,7 @@ import {
   BattleControllerStructure,
   BattleRequest,
   GetBattleResponse,
-  ToggleBattleWinnerResponse,
+  BattleResponse,
 } from "./types.js";
 
 class BattleController implements BattleControllerStructure {
@@ -47,7 +47,7 @@ class BattleController implements BattleControllerStructure {
 
   public toggleBattleWinner = async (
     req: BattleRequest,
-    res: ToggleBattleWinnerResponse,
+    res: BattleResponse,
     next: NextFunction,
   ): Promise<void> => {
     const { battleId } = req.params;
@@ -64,7 +64,7 @@ class BattleController implements BattleControllerStructure {
       return;
     }
 
-    const updatedBattle = await this.battleModel
+    const toggledBattle = await this.battleModel
       .findByIdAndUpdate(
         battleId,
         {
@@ -74,7 +74,31 @@ class BattleController implements BattleControllerStructure {
       )
       .exec();
 
-    res.status(200).json({ battle: updatedBattle! });
+    res.status(200).json({ battle: toggledBattle! });
+  };
+
+  public deleteBattle = async (
+    req: BattleRequest,
+    res: BattleResponse,
+    next: NextFunction,
+  ): Promise<void> => {
+    const { battleId } = req.params;
+
+    const deletedBattle = await this.battleModel
+      .findByIdAndDelete(battleId)
+      .exec();
+
+    if (!deletedBattle) {
+      const error = new ServerError(
+        statusCodes.NOT_FOUND,
+        "The battle identifier has not been found",
+      );
+
+      next(error);
+      return;
+    }
+
+    res.status(200).json({ battle: deletedBattle });
   };
 }
 
