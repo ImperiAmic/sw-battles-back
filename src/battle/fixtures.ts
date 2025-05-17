@@ -1,6 +1,6 @@
 import { BattleStructure } from "./types.js";
 
-export const battleOfEmpuries: BattleStructure = {
+export const empuriesBattle: BattleStructure = {
   _id: "111aaa111aaa111aaa111aaa",
   battleName: "Battle of Empúries",
   conflict: "Second Punic War",
@@ -15,7 +15,7 @@ export const battleOfEmpuries: BattleStructure = {
   doesLightSideWin: true,
 };
 
-export const battleOfRuscino: BattleStructure = {
+export const ruscinoBattle: BattleStructure = {
   _id: "222bbb222bbb222bbb222bbb",
   battleName: "Battle of Ruscino",
   conflict: "Gallic Invasions",
@@ -30,7 +30,7 @@ export const battleOfRuscino: BattleStructure = {
   doesLightSideWin: true,
 };
 
-export const battleOfIlipa: BattleStructure = {
+export const ilipaBattle: BattleStructure = {
   _id: "333ccc333ccc333ccc333ccc",
   battleName: "Battle of Ilipa",
   conflict: "Second Punic War",
@@ -45,7 +45,7 @@ export const battleOfIlipa: BattleStructure = {
   doesLightSideWin: true,
 };
 
-export const battleOfMartorell: BattleStructure = {
+export const martorellBattle: BattleStructure = {
   _id: "444ddd444ddd444ddd444ddd",
   battleName: "Battle of Martorell",
   conflict: "Catalan Revolt",
@@ -60,7 +60,7 @@ export const battleOfMartorell: BattleStructure = {
   doesLightSideWin: false,
 };
 
-export const battleOfMontjuic: BattleStructure = {
+export const montjuicBattle: BattleStructure = {
   _id: "555eee555eee555eee555eee",
   battleName: "Battle of Montjuïc",
   conflict: "Catalan Revolt",
@@ -75,7 +75,7 @@ export const battleOfMontjuic: BattleStructure = {
   doesLightSideWin: true,
 };
 
-export const battleOfLleida: BattleStructure = {
+export const lleidaBattle: BattleStructure = {
   _id: "666fff666fff666fff666fff",
   battleName: "Battle of Lleida",
   conflict: "Catalan Revolt",
@@ -90,7 +90,7 @@ export const battleOfLleida: BattleStructure = {
   doesLightSideWin: false,
 };
 
-export const battleOfBarcelona: BattleStructure = {
+export const barcelonaBattle: BattleStructure = {
   _id: "aaa111aaa111aaa111aaa111",
   battleName: "Battle of Barcelona",
   conflict: "War of the Spanish Succession",
@@ -105,7 +105,7 @@ export const battleOfBarcelona: BattleStructure = {
   doesLightSideWin: false,
 };
 
-export const siegeOfRoses: BattleStructure = {
+export const rosesBattle: BattleStructure = {
   _id: "bbb222bbb222bbb222bbb222",
   battleName: "Siege of Roses",
   conflict: "War of the Pyrenees",
@@ -120,9 +120,9 @@ export const siegeOfRoses: BattleStructure = {
   doesLightSideWin: true,
 };
 
-export const battleOfTheEbro: BattleStructure = {
+export const ebreBattle: BattleStructure = {
   _id: "ccc333ccc333ccc333ccc333",
-  battleName: "Battle of the Ebro",
+  battleName: "Battle of the Ebre",
   conflict: "Spanish Civil War",
   year: 1938,
   period: "ABY",
@@ -136,20 +136,20 @@ export const battleOfTheEbro: BattleStructure = {
 };
 
 export const catalanBattles: BattleStructure[] = [
-  battleOfTheEbro,
-  battleOfRuscino,
-  battleOfIlipa,
-  battleOfMartorell,
-  battleOfMontjuic,
-  battleOfLleida,
-  battleOfBarcelona,
-  siegeOfRoses,
-  battleOfEmpuries,
+  ebreBattle,
+  ruscinoBattle,
+  ilipaBattle,
+  martorellBattle,
+  montjuicBattle,
+  lleidaBattle,
+  barcelonaBattle,
+  rosesBattle,
+  empuriesBattle,
 ];
 
-export const wrongIdBattleOfTheEbro: BattleStructure = {
+export const wrongIdEbreBattle: BattleStructure = {
   _id: "ccc333ccc333ccc333ccc",
-  battleName: "Battle of the Ebro",
+  battleName: "Battle of the Ebre",
   conflict: "Spanish Civil War",
   year: 1938,
   period: "ABY",
