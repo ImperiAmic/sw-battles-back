@@ -4,10 +4,7 @@ import { MongoMemoryServer } from "mongodb-memory-server";
 import app from "../../../server/app.js";
 import Battle from "../../model/Battle.js";
 import connectToDatabase from "../../../database/connectToDatabase.js";
-import {
-  PatchBattleWinnerResponseBody,
-  ResponseBodyError,
-} from "../../types.js";
+import { BattleResponseBody, ResponseBodyError } from "../../types.js";
 import {
   empuriesBattle,
   lleidaBattle,
@@ -37,7 +34,7 @@ describe("Given the PATCH /battles/:battleId endpoint", () => {
         `/battles/${empuriesBattle._id}`,
       );
 
-      const responseBody = response.body as PatchBattleWinnerResponseBody;
+      const responseBody = response.body as BattleResponseBody;
 
       expect(response.status).toBe(expectedStatusCode);
       expect(responseBody.battle.doesLightSideWin).toBe(false);

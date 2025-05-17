@@ -13,5 +13,10 @@ battlesRouter.patch(
   handleIdValidation,
   battleController.toggleBattleWinner,
 );
+battlesRouter.delete(
+  "/:battleId",
+  handleIdValidation,
+  battleController.deleteBattle,
+);
 
 export default battlesRouter;
