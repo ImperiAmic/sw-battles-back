@@ -4,7 +4,7 @@ import helmet from "helmet";
 import express from "express";
 import battlesRouter from "../battle/router/battleRouter.js";
 import handleErrors from "./middlewares/handleErrors/handleErrors.js";
-import handleHealthCheck from "./middlewares/handleHealthCheck/healthCheck.js";
+import handleHealthCheck from "./middlewares/handleHealthCheck/handleHealthCheck.js";
 import handleCorsPolicy from "./middlewares/handleCorsPolicy/handleCorsPolicy.js";
 import handleEndpointNotFound from "./middlewares/handleEndpointNotFound/handleEndpointNotFound.js";
 
