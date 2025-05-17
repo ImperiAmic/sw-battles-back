@@ -9,9 +9,9 @@ import {
   ResponseBodyError,
 } from "../../types.js";
 import {
-  battleOfEmpuries,
-  battleOfLleida,
-  wrongIdBattleOfTheEbro,
+  empuriesBattle,
+  lleidaBattle,
+  wrongIdEbreBattle,
 } from "../../fixtures.js";
 
 let server: MongoMemoryServer;
@@ -20,7 +20,7 @@ beforeAll(async () => {
   server = await MongoMemoryServer.create();
   const serverUri = server.getUri();
   await connectToDatabase(serverUri);
-  await Battle.create(battleOfEmpuries, battleOfLleida);
+  await Battle.create(empuriesBattle, lleidaBattle);
 });
 
 afterAll(async () => {
@@ -34,7 +34,7 @@ describe("Given the PATCH /battles/:battleId endpoint", () => {
       const expectedStatusCode = 200;
 
       const response = await request(app).patch(
-        `/battles/${battleOfEmpuries._id}`,
+        `/battles/${empuriesBattle._id}`,
       );
 
       const responseBody = response.body as PatchBattleWinnerResponseBody;
@@ -45,12 +45,12 @@ describe("Given the PATCH /battles/:battleId endpoint", () => {
   });
 
   describe("When it receives a request with an invalid ID", () => {
-    test("Then it should response with 400 status code and 'The battle identifier to update the winner of the battle is not correct' error", async () => {
+    test("Then it should response with 400 status code and 'The battle identifier is not correct' error", async () => {
       const expectedStatusCode = 400;
       const expectErrorMessage = "The battle identifier is not correct";
 
       const response = await request(app).patch(
-        `/battles/${wrongIdBattleOfTheEbro._id}`,
+        `/battles/${wrongIdEbreBattle._id}`,
       );
 
       const responseBody = response.body as ResponseBodyError;

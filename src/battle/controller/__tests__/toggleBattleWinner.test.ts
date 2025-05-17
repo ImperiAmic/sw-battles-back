@@ -1,18 +1,18 @@
 import { Model } from "mongoose";
 import { NextFunction, Response } from "express";
 import { BattleStructure } from "../../types.js";
-import { battleOfEmpuries } from "../../fixtures.js";
+import { empuriesBattle } from "../../fixtures.js";
 import BattleController from "../BattleController.js";
 import statusCodes from "../../../globals/statusCodes.js";
 import ServerError from "../../../server/ServerError/ServerError.js";
-import { BattleRequest, ToggleBattleWinnerResponse } from "../types.js";
+import { BattleRequest, BattleResponse } from "../types.js";
 
 beforeEach(() => {
   jest.clearAllMocks();
 });
 
 describe("Given the toggleBattleWinner method of BattleController", () => {
-  const res: Pick<ToggleBattleWinnerResponse, "status" | "json"> = {
+  const res: Pick<BattleResponse, "status" | "json"> = {
     status: jest.fn().mockReturnThis(),
     json: jest.fn(),
   };
@@ -22,22 +22,22 @@ describe("Given the toggleBattleWinner method of BattleController", () => {
   describe("When it receives a request with Battle of Empúries", () => {
     const req: Pick<BattleRequest, "params"> = {
       params: {
-        battleId: battleOfEmpuries._id,
+        battleId: empuriesBattle._id,
       },
     };
 
-    const expectedUpdatedBattle = { ...battleOfEmpuries };
-    expectedUpdatedBattle.doesLightSideWin = false;
+    const expectedToggledBattle = { ...empuriesBattle };
+    expectedToggledBattle.doesLightSideWin = false;
 
     const battleModel: Pick<
       Model<BattleStructure>,
       "findById" | "findByIdAndUpdate"
     > = {
       findById: jest.fn().mockReturnValue({
-        exec: jest.fn().mockResolvedValue(battleOfEmpuries),
+        exec: jest.fn().mockResolvedValue(empuriesBattle),
       }),
       findByIdAndUpdate: jest.fn().mockReturnValue({
-        exec: jest.fn().mockResolvedValue(expectedUpdatedBattle),
+        exec: jest.fn().mockResolvedValue(expectedToggledBattle),
       }),
     };
 
@@ -67,7 +67,7 @@ describe("Given the toggleBattleWinner method of BattleController", () => {
       );
 
       expect(res.json).toHaveBeenCalledWith({
-        battle: expectedUpdatedBattle,
+        battle: expectedToggledBattle,
       });
     });
   });
@@ -130,7 +130,7 @@ describe("Given the toggleBattleWinner method of BattleController", () => {
       }),
     };
 
-    test("Then it should next 'The battle identifier to update the winner of the battle is not correct", async () => {
+    test("Then it should next 'The battle identifier has not been found' error", async () => {
       const error = new ServerError(
         statusCodes.BAD_REQUEST,
         "The battle identifier has not been found",
