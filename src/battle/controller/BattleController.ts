@@ -100,6 +100,28 @@ class BattleController implements BattleControllerStructure {
 
     res.status(200).json({ battle: deletedBattle });
   };
+
+  public getBattle = async (
+    req: BattleRequest,
+    res: BattleResponse,
+    next: NextFunction,
+  ): Promise<void> => {
+    const { battleId } = req.params;
+
+    const battle = await this.battleModel.findById(battleId).exec();
+
+    if (!battle) {
+      const error = new ServerError(
+        statusCodes.NOT_FOUND,
+        "The battle identifier has not been found",
+      );
+
+      next(error);
+      return;
+    }
+
+    res.status(200).json({ battle: battle });
+  };
 }
 
 export default BattleController;
