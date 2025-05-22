@@ -186,3 +186,17 @@ export const newRosesBattle: BattleData = {
   darkSide: ["Spanish Monarchy"],
   doesLightSideWin: true,
 };
+
+export const repeatedRosesBattle: BattleData = {
+  battleName: "Siege of Roses",
+  conflict: "War of the Pyrenees",
+  year: 1794,
+  period: "ABY",
+  imageUrl:
+    "https://upload.wikimedia.org/wikipedia/commons/8/87/Siege_of_Roses_1794.jpg",
+  description:
+    "The French Revolutionary Army besieged and captured Roses, a key strategic port on the Catalan coast, from Spanish forces during the War of the Pyrenees.",
+  lightSide: ["French Republic"],
+  darkSide: ["Spanish Monarchy"],
+  doesLightSideWin: true,
+};
