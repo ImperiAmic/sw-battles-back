@@ -1,6 +1,6 @@
 import { Model } from "mongoose";
 import { NextFunction } from "express";
-import { BattleStructure } from "../types.js";
+import { BattleData, BattleStructure } from "../types.js";
 import statusCodes from "../../globals/statusCodes.js";
 import ServerError from "../../server/ServerError/ServerError.js";
 import {
@@ -74,7 +74,7 @@ class BattleController implements BattleControllerStructure {
       )
       .exec();
 
-    res.status(200).json({ battle: toggledBattle! });
+    res.status(statusCodes.OK).json({ battle: toggledBattle! });
   };
 
   public deleteBattle = async (
@@ -98,7 +98,7 @@ class BattleController implements BattleControllerStructure {
       return;
     }
 
-    res.status(200).json({ battle: deletedBattle });
+    res.status(statusCodes.OK).json({ battle: deletedBattle });
   };
 
   public getBattle = async (
@@ -120,7 +120,34 @@ class BattleController implements BattleControllerStructure {
       return;
     }
 
-    res.status(200).json({ battle: battle });
+    res.status(statusCodes.OK).json({ battle: battle });
+  };
+
+  public addBattle = async (
+    req: BattleRequest,
+    res: BattleResponse,
+    next: NextFunction,
+  ): Promise<void> => {
+    const battle = req.body as BattleData;
+
+    const existingBattle = await this.battleModel.findOne({
+      battleName: battle.battleName,
+    });
+
+    if (existingBattle) {
+      const error = new ServerError(
+        statusCodes.CONFLICT,
+        "The battle to add is already in the database",
+      );
+
+      next(error);
+      return;
+    }
+
+    const newBattle = await this.battleModel.create(battle);
+    await newBattle.save();
+
+    res.status(statusCodes.CREATED).json({ battle: newBattle });
   };
 }
 
