@@ -1,4 +1,4 @@
-import { BattleStructure } from "./types.js";
+import { BattleData, BattleStructure } from "./types.js";
 
 export const empuriesBattle: BattleStructure = {
   _id: "111aaa111aaa111aaa111aaa",
@@ -160,4 +160,29 @@ export const wrongIdEbreBattle: BattleStructure = {
   lightSide: ["Spanish Republic"],
   darkSide: ["Nationalist Spain"],
   doesLightSideWin: false,
+};
+
+export const newVilafrancaBattle: BattleData = {
+  battleName: "Battle of Vilafranca",
+  conflict: "Penedès Wars",
+  year: 2025,
+  period: "ABY",
+  description: "Coses de la vida",
+  lightSide: ["Els bons"],
+  darkSide: ["Els dolents"],
+  doesLightSideWin: false,
+};
+
+export const newRosesBattle: BattleData = {
+  battleName: "Siege of Roses",
+  conflict: "War of the Pyrenees",
+  year: 1794,
+  period: "ABY",
+  imageUrl:
+    "https://upload.wikimedia.org/wikipedia/commons/8/87/Siege_of_Roses_1794.jpg",
+  description:
+    "The French Revolutionary Army besieged and captured Roses, a key strategic port on the Catalan coast, from Spanish forces during the War of the Pyrenees.",
+  lightSide: ["French Republic"],
+  darkSide: ["Spanish Monarchy"],
+  doesLightSideWin: true,
 };

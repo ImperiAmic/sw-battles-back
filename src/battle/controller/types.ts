@@ -46,4 +46,9 @@ export interface BattleControllerStructure {
     res: BattleResponse,
     next: NextFunction,
   ) => Promise<void>;
+  addBattle: (
+    req: BattleRequest,
+    res: BattleResponse,
+    next: NextFunction,
+  ) => Promise<void>;
 }
