@@ -26,12 +26,12 @@ afterAll(async () => {
   await server.stop();
 });
 
-describe("Given the PUT /battles endpoint", () => {
+describe("Given the POST /battles endpoint", () => {
   describe("When it receives a request with Seige of Roses", () => {
     test("Then it should response with a 201 status code and Battle of Roses", async () => {
       const expectedStatusCode = 201;
 
-      const response = await request(app).put("/battles").send(newRosesBattle);
+      const response = await request(app).post("/battles").send(newRosesBattle);
 
       const responseBody = response.body as BattleResponseBody;
 
@@ -48,7 +48,7 @@ describe("Given the PUT /battles endpoint", () => {
       };
 
       const response = await request(app)
-        .put("/battles")
+        .post("/battles")
         .send(repeatedRosesBattle);
 
       expect(response.status).toBe(expectedStatusCode);
