@@ -83,7 +83,7 @@ npm run test:coverage   # Run tests coverage
 | GET    | /battles?page=1    | Get paginated list of battles on page 1 | –              | `{ battles: Battle[], battlesTotal: number}` |
 | PATCH  | /battles/:battleId | Toggle winner of the battle             | -              | `{ battle: { Battle } }`                     |
 | DELETE | /battles/:battleId | Delete a battle from DB                 | -              | `{ battle: { Battle } }`                     |
-| PUT    | /battles/          | Add a battle to DB                      | `{ Battle }`   | `{ battle: { Battle } }`                     |
+| POST   | /battles/          | Add a battle to DB                      | `{ Battle }`   | `{ battle: { Battle } }`                     |
 
 ---
 
