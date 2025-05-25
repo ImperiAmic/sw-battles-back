@@ -170,11 +170,14 @@ class BattleController implements BattleControllerStructure {
       return;
     }
 
-    const duplicatedBattle = await this.battleModel
-      .findOne({ battleName: battle.battleName })
+    const duplicatedNameBattle = await this.battleModel
+      .findOne({ battleName: editedBattle.battleName })
       .exec();
 
-    if (duplicatedBattle) {
+    if (
+      duplicatedNameBattle &&
+      duplicatedNameBattle._id.toString() !== battleId
+    ) {
       const error = new ServerError(
         statusCodes.CONFLICT,
         "The battle updated has same name as other already in database",

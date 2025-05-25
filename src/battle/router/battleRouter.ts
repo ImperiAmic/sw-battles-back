@@ -20,5 +20,10 @@ battlesRouter.delete(
 );
 battlesRouter.get("/:battleId", handleIdValidation, battleController.getBattle);
 battlesRouter.post("/", battleController.addBattle);
+battlesRouter.put(
+  "/:battleId",
+  handleIdValidation,
+  battleController.editBattle,
+);
 
 export default battlesRouter;
