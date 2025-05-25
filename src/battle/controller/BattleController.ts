@@ -149,6 +149,47 @@ class BattleController implements BattleControllerStructure {
 
     res.status(statusCodes.CREATED).json({ battle: newBattle });
   };
+
+  public editBattle = async (
+    req: BattleRequest,
+    res: BattleResponse,
+    next: NextFunction,
+  ): Promise<void> => {
+    const { battleId } = req.params;
+    const editedBattle = req.body;
+
+    const battle = await this.battleModel.findById(battleId).exec();
+
+    if (!battle) {
+      const error = new ServerError(
+        statusCodes.NOT_FOUND,
+        "The battle identifier has not been found",
+      );
+
+      next(error);
+      return;
+    }
+
+    const duplicatedBattle = await this.battleModel
+      .findOne({ battleName: battle.battleName })
+      .exec();
+
+    if (duplicatedBattle) {
+      const error = new ServerError(
+        statusCodes.CONFLICT,
+        "The battle updated has same name as other already in database",
+      );
+
+      next(error);
+      return;
+    }
+
+    const updatedBattle = await this.battleModel
+      .findOneAndReplace({ _id: battleId }, editedBattle, { new: true })
+      .exec();
+
+    res.status(statusCodes.OK).json({ battle: updatedBattle! });
+  };
 }
 
 export default BattleController;
