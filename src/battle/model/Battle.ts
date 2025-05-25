@@ -20,7 +20,7 @@ const battleSchema = new Schema<BattleStructure>({
     required: true,
   },
   imageUrl: {
-    String,
+    type: String,
   },
   description: {
     type: String,
