@@ -162,7 +162,7 @@ describe("Given the editBattle method from BattleController", () => {
       }),
       findOne: jest.fn().mockReturnValue({
         exec: jest.fn().mockReturnValue({
-          _id: "222bbb222bbb222bbb222bbb",
+          _id: "222bbb222bbb222bbb222fff",
           battleName: editedDuplicatedRuscinoBattle.battleName,
         }),
       }),
