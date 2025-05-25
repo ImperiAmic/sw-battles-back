@@ -200,3 +200,33 @@ export const repeatedRosesBattle: BattleData = {
   darkSide: ["Spanish Monarchy"],
   doesLightSideWin: true,
 };
+
+export const editedRuscinoBattle: BattleStructure = {
+  _id: "222bbb222bbb222bbb222bbb",
+  battleName: "Battle of Ruscino",
+  conflict: "Gallic North Invasions",
+  year: 122,
+  period: "BBY",
+  imageUrl:
+    "https://upload.wikimedia.org/wikipedia/commons/1/1b/Gallia_Narbonensis.png",
+  description:
+    "Fought near present-day Roussillon, the Romans defeated the Gallic tribes and reinforced their dominance in southeastern Gaul, impacting Catalonia’s northern border.",
+  lightSide: ["Roman Republic"],
+  darkSide: ["Gallic Tribes"],
+  doesLightSideWin: true,
+};
+
+export const editedDuplicatedRuscinoBattle: BattleStructure = {
+  _id: "222bbb222bbb222bbb222bbb",
+  battleName: "Siege of Roses",
+  conflict: "Gallic North Invasions",
+  year: 122,
+  period: "BBY",
+  imageUrl:
+    "https://upload.wikimedia.org/wikipedia/commons/1/1b/Gallia_Narbonensis.png",
+  description:
+    "Fought near present-day Roussillon, the Romans defeated the Gallic tribes and reinforced their dominance in southeastern Gaul, impacting Catalonia’s northern border.",
+  lightSide: ["Roman Republic"],
+  darkSide: ["Gallic Tribes"],
+  doesLightSideWin: true,
+};
