@@ -79,11 +79,14 @@ npm run test:coverage   # Run tests coverage
 
 | Method | URL                | Description                             | Body (example) | Response (example)                           |
 | ------ | ------------------ | --------------------------------------- | -------------- | -------------------------------------------- |
-| GET    | /battles           | Get paginated list of battles           | –              | `{ battles: Battle[], battlesTotal: number}` |
-| GET    | /battles?page=1    | Get paginated list of battles on page 1 | –              | `{ battles: Battle[], battlesTotal: number}` |
+| GET    | /                  | Get server status                       | -              | `{ message: "🏓" }`                          |
+| GET    | /battles           | Get paginated list of battles           | -              | `{ battles: Battle[], battlesTotal: number}` |
+| GET    | /battles?page=1    | Get paginated list of battles on page 1 | -              | `{ battles: Battle[], battlesTotal: number}` |
+| GET    | /battles/battle:Id | Get an specific battle                  | -              | `{ battle: { Battle } }`                     |
 | PATCH  | /battles/:battleId | Toggle winner of the battle             | -              | `{ battle: { Battle } }`                     |
 | DELETE | /battles/:battleId | Delete a battle from DB                 | -              | `{ battle: { Battle } }`                     |
 | POST   | /battles/          | Add a battle to DB                      | `{ Battle }`   | `{ battle: { Battle } }`                     |
+| PUT    | /battles/:battleId | Edit a battle from the DB               | `{ Battle }`   | `{ battle: { Battle } }`                     |
 
 ---
 

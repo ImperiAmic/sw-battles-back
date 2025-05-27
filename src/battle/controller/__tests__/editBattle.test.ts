@@ -171,10 +171,10 @@ describe("Given the editBattle method from BattleController", () => {
       }),
     };
 
-    test("Then it should next 'The battle updated has same name as other already in database' error", async () => {
+    test("Then it should next 'The battle edited has same name as other already in database' error", async () => {
       const error = new ServerError(
         statusCodes.CONFLICT,
-        "The battle updated has same name as other already in database",
+        "The battle edited has same name as other already in database",
       );
 
       const battleController = new BattleController(

@@ -70,10 +70,10 @@
         "method": "PATCH",
         "header": [],
         "url": {
-          "raw": "https://raimon-sola-202502-back.onrender.com/battles/681bd70c5df0421d00824179",
+          "raw": "https://raimon-sola-202502-back.onrender.com/battles/681bd59d5df0421d00824174",
           "protocol": "https",
           "host": ["raimon-sola-202502-back", "onrender", "com"],
-          "path": ["battles", "681bd70c5df0421d00824179"]
+          "path": ["battles", "681bd59d5df0421d00824174"]
         }
       },
       "response": []
@@ -87,10 +87,10 @@
         "method": "DELETE",
         "header": [],
         "url": {
-          "raw": "https://raimon-sola-202502-back.onrender.com/battles/6830accefc55a2d87dae4959",
+          "raw": "https://raimon-sola-202502-back.onrender.com/battles/681bd59d5df0421d00824174",
           "protocol": "https",
           "host": ["raimon-sola-202502-back", "onrender", "com"],
-          "path": ["battles", "6830accefc55a2d87dae4959"]
+          "path": ["battles", "681bd59d5df0421d00824174"]
         }
       },
       "response": []
@@ -104,10 +104,10 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "https://raimon-sola-202502-back.onrender.com/battles/681bd84c5df0421d0082417c",
+          "raw": "https://raimon-sola-202502-back.onrender.com/battles/681bd59d5df0421d00824174",
           "protocol": "https",
           "host": ["raimon-sola-202502-back", "onrender", "com"],
-          "path": ["battles", "681bd84c5df0421d0082417c"]
+          "path": ["battles", "681bd59d5df0421d00824174"]
         }
       },
       "response": []
@@ -131,6 +131,29 @@
           "protocol": "https",
           "host": ["raimon-sola-202502-back", "onrender", "com"],
           "path": ["battles"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/battles/:battleId",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"_id\": \"681bd59d5df0421d00824174\",\r\n    \"conflict\": \"Resistance-First Order War\",\r\n    \"year\": 35,\r\n    \"period\": \"ABY\",\r\n    \"imageUrl\": \"https://i.ibb.co/hR3mtxn8/raid-exegol.webp\",\r\n    \"description\": \"The Battle of Exegol took place in 35 ABY, marking the climactic battle between the Resistance and the Sith Eternal on the hidden Sith world of Exegol. The First Order, led by Supreme Leader Kylo Ren, joined forces with Emperor Palpatine, who had returned to life through dark Sith rituals. The Resistance, led by General Leia Organa, and the allies of the galaxy, launched a final assault against Palpatine’s massive fleet, aiming to prevent the resurrection of the Sith Empire. The battle saw the return of Rey and the final confrontation between her and Palpatine.\\n\\nThe Resistance achieved victory, defeating Palpatine’s fleet and bringing an end to the Sith’s reign over the galaxy. Rey, with the help of the Force, struck down Palpatine, ending his rule once and for all, and bringing peace to the galaxy after decades of conflict.\",\r\n    \"lightSide\": [\r\n        \"Resistance\",\r\n        \"Jedi Order\",\r\n        \"Civilians and inhabitants of the galaxy\"\r\n    ],\r\n    \"darkSide\": [\r\n        \"Sith Eternal\",\r\n        \"First Order\"\r\n    ],\r\n    \"doesLightSideWin\": true,\r\n    \"battleName\": \"Raid on Exegol\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://raimon-sola-202502-back.onrender.com/battles/681bd59d5df0421d00824174",
+          "protocol": "https",
+          "host": ["raimon-sola-202502-back", "onrender", "com"],
+          "path": ["battles", "681bd59d5df0421d00824174"]
         }
       },
       "response": []

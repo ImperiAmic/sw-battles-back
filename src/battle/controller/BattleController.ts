@@ -156,7 +156,7 @@ class BattleController implements BattleControllerStructure {
     next: NextFunction,
   ): Promise<void> => {
     const { battleId } = req.params;
-    const editedBattle = req.body;
+    const toEditBattle = req.body;
 
     const battle = await this.battleModel.findById(battleId).exec();
 
@@ -171,7 +171,7 @@ class BattleController implements BattleControllerStructure {
     }
 
     const duplicatedNameBattle = await this.battleModel
-      .findOne({ battleName: editedBattle.battleName })
+      .findOne({ battleName: toEditBattle.battleName })
       .exec();
 
     if (
@@ -180,18 +180,18 @@ class BattleController implements BattleControllerStructure {
     ) {
       const error = new ServerError(
         statusCodes.CONFLICT,
-        "The battle updated has same name as other already in database",
+        "The battle edited has same name as other already in database",
       );
 
       next(error);
       return;
     }
 
-    const updatedBattle = await this.battleModel
-      .findOneAndReplace({ _id: battleId }, editedBattle, { new: true })
+    const editedBattle = await this.battleModel
+      .findOneAndReplace({ _id: battleId }, toEditBattle, { new: true })
       .exec();
 
-    res.status(statusCodes.OK).json({ battle: updatedBattle! });
+    res.status(statusCodes.OK).json({ battle: editedBattle! });
   };
 }
 
